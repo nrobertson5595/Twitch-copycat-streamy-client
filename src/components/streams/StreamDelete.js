@@ -1,7 +1,14 @@
 import React from "react";
+import { connect } from "react-redux";
+import { fetchStream } from "../../actions";
 
-const StreamDelete = () => {
-  return <div>StreamDelete</div>;
-};
+class StreamDelete extends React.Component {
+  componentDidMount() {
+    this.props.fetchStream(this.props.match.params.id);
+  }
+  render() {
+    return <div>StreamDelete</div>;
+  }
+}
 
-export default StreamDelete;
+export default connect(null, { fetchStream })(StreamDelete);
